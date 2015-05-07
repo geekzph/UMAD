@@ -1,0 +1,493 @@
+﻿Build started 2015/5/8 0:26:54.
+     1>Project "C:\Users\yh\Desktop\UMAD150508\UMAD\UMAD\UMAD\UMAD.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ISourceFiles\util\GSL\include /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D GSL_DLL /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt /D "GSL_DLL"  /D "_CRT_SECURE_NO_DEPRECATE" SourceFiles\classifier\Test.cpp SourceFiles\classifier\Test_C4.5.cpp SourceFiles\classifier\Test_Knn.cpp SourceFiles\classifier\Test_NavieBayes.cpp SourceFiles\classifier\Train.cpp SourceFiles\classifier\Train_C4.5.cpp SourceFiles\classifier\Train_Knn.cpp SourceFiles\classifier\Train_NavieBayes.cpp SourceFiles\classifier\util\classification.cpp SourceFiles\classifier\util\DatasetInMetricSpace.cpp SourceFiles\classifier\util\NavieBayes.cpp SourceFiles\classifier\util\ReadLabel.cpp SourceFiles\classifier\util\TrainOrTest.cpp SourceFiles\cluster\PartitionByOnePivot_Balance.cpp SourceFiles\cluster\PartitionByOnePivot_BalanceOne.cpp SourceFiles\cluster\PartitionByOnePivot_DBSCAN.cpp SourceFiles\cluster\PartitionByOnePivot_Kmeans.cpp SourceFiles\cluster\PartitionByOnePivot_Trisection.cpp SourceFiles\cluster\PivotWisePartitionMethod.cpp SourceFiles\cluster\SelectOptimalPivots_Sequence.cpp SourceFiles\cluster\SelectOptimalPivots_Variance.cpp SourceFiles\cluster\util\ClusteringTask.cpp SourceFiles\cluster\util\Clustering_Kmeans.cpp SourceFiles\cluster\util\utilFunction.cpp SourceFiles\index\BalancePartitionMethod.cpp SourceFiles\index\ExcludedMiddleForest.cpp SourceFiles\index\ExcludedMiddlePartitionMethod.cpp SourceFiles\index\FFTPivotSelectionMethod.cpp SourceFiles\index\IncrementalSelection.cpp SourceFiles\index\Index.cpp SourceFiles\index\IndexNode.cpp SourceFiles\index\ListIndex.cpp SourceFiles\index\MVPIndex.cpp SourceFiles\index\MVPInternalNode.cpp SourceFiles\index\MVPLeafNode.cpp SourceFiles\index\PartitionResults.cpp SourceFiles\index\PCA.cpp SourceFiles\index\PCAOnFFT.cpp SourceFiles\index\query\Query.cpp SourceFiles\index\query\RangeQuery.cpp SourceFiles\index\query\SearchTask.cpp SourceFiles\metricdata\DNA.cpp SourceFiles\metricdata\DoubleIndexObjectPair.cpp SourceFiles\metricdata\DoubleVector.cpp SourceFiles\metricdata\Image.cpp SourceFiles\metricdata\MetricData.cpp SourceFiles\metricdata\Peptide.cpp SourceFiles\metricdata\RNA.cpp SourceFiles\metricdata\StringObject.cpp SourceFiles\metricdata\TandemSpectra.cpp SourceFiles\metricdistance\CountedMetric.cpp SourceFiles\metricdistance\DNAMetric.cpp SourceFiles\metricdistance\EditDistance.cpp SourceFiles\metricdistance\EuclideanDistance.cpp SourceFiles\metricdistance\ImageMetric.cpp SourceFiles\metricdistance\LInfinityDistance.cpp SourceFiles\metricdistance\MetricDistance.cpp SourceFiles\metricdistance\MSMSMetric.cpp SourceFiles\metricdistance\PeptideMetric.cpp SourceFiles\metricdistance\RNAMetric.cpp SourceFiles\util\BuildAndSearchTypes.cpp SourceFiles\util\BuildORQueryIndex.cpp SourceFiles\util\getopt.cpp SourceFiles\util\getopt_win.cpp SourceFiles\util\LoadOrSearch.cpp SourceFiles\util\main.cpp SourceFiles\util\MakeFileName.cpp SourceFiles\util\MemMonitor.cpp SourceFiles\util\MVPIndexStructureAnalysor.cpp SourceFiles\util\ObjectFactory.cpp SourceFiles\util\ThreadPoolManager.cpp
+         ThreadPoolManager.cpp
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\util\threadpoolmanager.cpp(222): warning C4101: 'e' : unreferenced local variable
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\util\threadpoolmanager.cpp(228): warning C4101: 'e' : unreferenced local variable
+         ObjectFactory.cpp
+         MVPIndexStructureAnalysor.cpp
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\headerfiles\metricdata\stringobject.h(63): warning C4305: 'initializing' : truncation from '__int64' to 'const long'
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\headerfiles\metricdata\stringobject.h(63): warning C4309: 'initializing' : truncation of constant value
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\util\mvpindexstructureanalysor.cpp(521): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\util\mvpindexstructureanalysor.cpp(568): warning C4101: 'e' : unreferenced local variable
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\util\mvpindexstructureanalysor.cpp(574): warning C4101: 'e' : unreferenced local variable
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\util\mvpindexstructureanalysor.cpp(598): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\util\mvpindexstructureanalysor.cpp(646): warning C4101: 'e' : unreferenced local variable
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\util\mvpindexstructureanalysor.cpp(652): warning C4101: 'e' : unreferenced local variable
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\util\mvpindexstructureanalysor.cpp(772): warning C4101: 'e' : unreferenced local variable
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\util\mvpindexstructureanalysor.cpp(778): warning C4101: 'e' : unreferenced local variable
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\util\mvpindexstructureanalysor.cpp(784): warning C4101: 'e' : unreferenced local variable
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\util\mvpindexstructureanalysor.cpp(812): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\util\mvpindexstructureanalysor.cpp(847): warning C4101: 'e' : unreferenced local variable
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\util\mvpindexstructureanalysor.cpp(853): warning C4101: 'e' : unreferenced local variable
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\util\mvpindexstructureanalysor.cpp(859): warning C4101: 'e' : unreferenced local variable
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\util\mvpindexstructureanalysor.cpp(922): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\util\mvpindexstructureanalysor.cpp(1087): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\util\mvpindexstructureanalysor.cpp(1096): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\util\mvpindexstructureanalysor.cpp(1256): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\util\mvpindexstructureanalysor.cpp(1324): warning C4390: ';' : empty controlled statement found; is this the intent?
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\util\mvpindexstructureanalysor.cpp(1437): warning C4390: ';' : empty controlled statement found; is this the intent?
+         MemMonitor.cpp
+         MakeFileName.cpp
+         main.cpp
+         Importing getopt library
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\util\main.cpp(842): warning C4129: 'i' : unrecognized character escape sequence
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\util\main.cpp(842): warning C4129: 'c' : unrecognized character escape sequence
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\util\main.cpp(842): warning C4129: 'o' : unrecognized character escape sequence
+         LoadOrSearch.cpp
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\headerfiles\metricdata\stringobject.h(63): warning C4305: 'initializing' : truncation from '__int64' to 'const long'
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\headerfiles\metricdata\stringobject.h(63): warning C4309: 'initializing' : truncation of constant value
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\util\loadorsearch.cpp(610): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\util\loadorsearch.cpp(739): warning C4018: '>' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\util\loadorsearch.cpp(1038): warning C4018: '>' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\util\loadorsearch.cpp(1047): warning C4018: '>' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\util\loadorsearch.cpp(1057): warning C4018: '>' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\util\loadorsearch.cpp(1146): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\util\loadorsearch.cpp(1177): warning C4018: '<' : signed/unsigned mismatch
+         getopt_win.cpp
+         Importing getopt library
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\util\getopt_win.cpp(99): warning C4273: 'optind' : inconsistent dll linkage
+                 c:\users\yh\desktop\umad150508\umad\umad\umad\headerfiles\util\getopt_win.h(169) : see previous definition of 'optind'
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\util\getopt_win.cpp(101): warning C4273: 'opterr' : inconsistent dll linkage
+                 c:\users\yh\desktop\umad150508\umad\umad\umad\headerfiles\util\getopt_win.h(171) : see previous definition of 'opterr'
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\util\getopt_win.cpp(103): warning C4273: 'optopt' : inconsistent dll linkage
+                 c:\users\yh\desktop\umad150508\umad\umad\umad\headerfiles\util\getopt_win.h(173) : see previous definition of 'optopt'
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\util\getopt_win.cpp(147): warning C4273: 'optarg_a' : inconsistent dll linkage
+                 c:\users\yh\desktop\umad150508\umad\umad\umad\headerfiles\util\getopt_win.h(193) : see previous definition of 'optarg_a'
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\util\getopt_win.cpp(989): warning C4273: 'getopt_a' : inconsistent dll linkage
+                 c:\users\yh\desktop\umad150508\umad\umad\umad\headerfiles\util\getopt_win.h(195) : see previous definition of 'getopt_a'
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\util\getopt_win.cpp(997): warning C4273: 'getopt_long_a' : inconsistent dll linkage
+                 c:\users\yh\desktop\umad150508\umad\umad\umad\headerfiles\util\getopt_win.h(197) : see previous definition of 'getopt_long_a'
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\util\getopt_win.cpp(1005): warning C4273: 'getopt_long_only_a' : inconsistent dll linkage
+                 c:\users\yh\desktop\umad150508\umad\umad\umad\headerfiles\util\getopt_win.h(199) : see previous definition of 'getopt_long_only_a'
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\util\getopt_win.cpp(1067): warning C4273: 'optarg_w' : inconsistent dll linkage
+                 c:\users\yh\desktop\umad150508\umad\umad\umad\headerfiles\util\getopt_win.h(219) : see previous definition of 'optarg_w'
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\util\getopt_win.cpp(1909): warning C4273: 'getopt_w' : inconsistent dll linkage
+                 c:\users\yh\desktop\umad150508\umad\umad\umad\headerfiles\util\getopt_win.h(221) : see previous definition of 'getopt_w'
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\util\getopt_win.cpp(1917): warning C4273: 'getopt_long_w' : inconsistent dll linkage
+                 c:\users\yh\desktop\umad150508\umad\umad\umad\headerfiles\util\getopt_win.h(223) : see previous definition of 'getopt_long_w'
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\util\getopt_win.cpp(1925): warning C4273: 'getopt_long_only_w' : inconsistent dll linkage
+                 c:\users\yh\desktop\umad150508\umad\umad\umad\headerfiles\util\getopt_win.h(225) : see previous definition of 'getopt_long_only_w'
+         getopt.cpp
+         BuildORQueryIndex.cpp
+         BuildAndSearchTypes.cpp
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\headerfiles\metricdata\stringobject.h(63): warning C4305: 'initializing' : truncation from '__int64' to 'const long'
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\headerfiles\metricdata\stringobject.h(63): warning C4309: 'initializing' : truncation of constant value
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\util\buildandsearchtypes.cpp(72): warning C4930: 'CObjectFactory factory(void)': prototyped function not called (was a variable definition intended?)
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\util\buildandsearchtypes.cpp(84): warning C4930: 'CObjectFactory factory(void)': prototyped function not called (was a variable definition intended?)
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\util\buildandsearchtypes.cpp(94): warning C4930: 'CObjectFactory factory(void)': prototyped function not called (was a variable definition intended?)
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\util\buildandsearchtypes.cpp(100): warning C4930: 'CObjectFactory factory(void)': prototyped function not called (was a variable definition intended?)
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\util\buildandsearchtypes.cpp(106): warning C4930: 'CObjectFactory factory(void)': prototyped function not called (was a variable definition intended?)
+         RNAMetric.cpp
+         PeptideMetric.cpp
+         MSMSMetric.cpp
+         MetricDistance.cpp
+         LInfinityDistance.cpp
+         ImageMetric.cpp
+         EuclideanDistance.cpp
+         EditDistance.cpp
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\headerfiles\metricdata\stringobject.h(63): warning C4305: 'initializing' : truncation from '__int64' to 'const long'
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\headerfiles\metricdata\stringobject.h(63): warning C4309: 'initializing' : truncation of constant value
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\metricdistance\editdistance.cpp(263): warning C4305: 'initializing' : truncation from '__int64' to 'const long'
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\metricdistance\editdistance.cpp(263): warning C4309: 'initializing' : truncation of constant value
+         DNAMetric.cpp
+         Generating Code...
+         Compiling...
+         CountedMetric.cpp
+         TandemSpectra.cpp
+         StringObject.cpp
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\headerfiles\metricdata\stringobject.h(63): warning C4305: 'initializing' : truncation from '__int64' to 'const long'
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\headerfiles\metricdata\stringobject.h(63): warning C4309: 'initializing' : truncation of constant value
+         RNA.cpp
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\metricdata\rna.cpp(275): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\metricdata\rna.cpp(312): warning C4018: '>' : signed/unsigned mismatch
+         Peptide.cpp
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\metricdata\peptide.cpp(367): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\metricdata\peptide.cpp(403): warning C4018: '>' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\metricdata\peptide.cpp(516): warning C4018: '<' : signed/unsigned mismatch
+         MetricData.cpp
+         Image.cpp
+         DoubleVector.cpp
+         DoubleIndexObjectPair.cpp
+         DNA.cpp
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\metricdata\dna.cpp(320): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\metricdata\dna.cpp(351): warning C4018: '>' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\metricdata\dna.cpp(429): warning C4018: '<' : signed/unsigned mismatch
+         SearchTask.cpp
+         RangeQuery.cpp
+         Query.cpp
+         PCAOnFFT.cpp
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\index\pcaonfft.cpp(87): warning C4018: '<=' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\index\pcaonfft.cpp(96): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\index\pcaonfft.cpp(125): warning C4018: '>=' : signed/unsigned mismatch
+         PCA.cpp
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\index\pca.cpp(299): warning C4018: '<=' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\index\pca.cpp(301): warning C4018: '<=' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\index\pca.cpp(340): warning C4018: '<=' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\index\pca.cpp(342): warning C4018: '<=' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\index\pca.cpp(395): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\index\pca.cpp(451): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\index\pca.cpp(902): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\index\pca.cpp(910): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\index\pca.cpp(1170): warning C4258: 'i' : definition from the for loop is ignored; the definition from the enclosing scope is used
+                 c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\index\pca.cpp(1140) : definition of 'i' ignored
+                 c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\index\pca.cpp(1121) : definition of 'i' used
+         PartitionResults.cpp
+         MVPLeafNode.cpp
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\index\mvpleafnode.cpp(201): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\index\mvpleafnode.cpp(205): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\index\mvpleafnode.cpp(273): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\index\mvpleafnode.cpp(321): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\index\mvpleafnode.cpp(335): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\index\mvpleafnode.cpp(369): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\index\mvpleafnode.cpp(379): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\index\mvpleafnode.cpp(439): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\index\mvpleafnode.cpp(491): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\index\mvpleafnode.cpp(762): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\index\mvpleafnode.cpp(797): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\index\mvpleafnode.cpp(902): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\index\mvpleafnode.cpp(923): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\index\mvpleafnode.cpp(1063): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\index\mvpleafnode.cpp(1095): warning C4018: '<' : signed/unsigned mismatch
+         MVPInternalNode.cpp
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\index\mvpinternalnode.cpp(415): warning C4101: 'i' : unreferenced local variable
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\index\mvpinternalnode.cpp(415): warning C4101: 'j' : unreferenced local variable
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\index\mvpinternalnode.cpp(463): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\index\mvpinternalnode.cpp(473): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\index\mvpinternalnode.cpp(532): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\index\mvpinternalnode.cpp(603): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\index\mvpinternalnode.cpp(881): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\index\mvpinternalnode.cpp(1062): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\index\mvpinternalnode.cpp(1206): warning C4018: '<' : signed/unsigned mismatch
+         MVPIndex.cpp
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\index\mvpindex.cpp(760): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\index\mvpindex.cpp(784): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\index\mvpindex.cpp(2009): warning C4018: '<=' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\index\mvpindex.cpp(2334): warning C4018: '<=' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\index\mvpindex.cpp(2565): warning C4018: '<=' : signed/unsigned mismatch
+         ListIndex.cpp
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\index\listindex.cpp(153): warning C4172: returning address of local variable or temporary
+         Generating Code...
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\index\mvpindex.cpp(800): warning C4715: 'traversingMVPTree' : not all control paths return a value
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\index\mvpindex.cpp(1835): warning C4715: 'standardCreateInternalNodeToWrite' : not all control paths return a value
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\index\query\searchtask.cpp(239): warning C4715: 'searchSubTree' : not all control paths return a value
+         Compiling...
+         IndexNode.cpp
+         Index.cpp
+         IncrementalSelection.cpp
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\index\incrementalselection.cpp(99): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
+         FFTPivotSelectionMethod.cpp
+         ExcludedMiddlePartitionMethod.cpp
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\index\excludedmiddlepartitionmethod.cpp(21): warning C4101: 'tempd2' : unreferenced local variable
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\index\excludedmiddlepartitionmethod.cpp(19): warning C4101: 'tempd1' : unreferenced local variable
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\index\excludedmiddlepartitionmethod.cpp(593): warning C4018: '>=' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\index\excludedmiddlepartitionmethod.cpp(639): warning C4018: '>=' : signed/unsigned mismatch
+         ExcludedMiddleForest.cpp
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\index\excludedmiddleforest.cpp(797): warning C4018: '<=' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\index\excludedmiddleforest.cpp(889): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\index\excludedmiddleforest.cpp(899): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\index\excludedmiddleforest.cpp(789): warning C4101: 'ecludedData' : unreferenced local variable
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\index\excludedmiddleforest.cpp(1455): warning C4018: '<=' : signed/unsigned mismatch
+         BalancePartitionMethod.cpp
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\index\balancepartitionmethod.cpp(683): warning C4258: 'k' : definition from the for loop is ignored; the definition from the enclosing scope is used
+                 c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\index\balancepartitionmethod.cpp(517) : definition of 'k' ignored
+                 c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\index\balancepartitionmethod.cpp(557) : definition of 'k' used
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\index\balancepartitionmethod.cpp(689): warning C4258: 'k' : definition from the for loop is ignored; the definition from the enclosing scope is used
+                 c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\index\balancepartitionmethod.cpp(517) : definition of 'k' ignored
+                 c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\index\balancepartitionmethod.cpp(557) : definition of 'k' used
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\index\balancepartitionmethod.cpp(693): warning C4258: 'k' : definition from the for loop is ignored; the definition from the enclosing scope is used
+                 c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\index\balancepartitionmethod.cpp(517) : definition of 'k' ignored
+                 c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\index\balancepartitionmethod.cpp(557) : definition of 'k' used
+         utilFunction.cpp
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\util\utilfunction.cpp(8): warning C4005: 'INT_MAX' : macro redefinition
+                 e:\program files (x86)\microsoft visual studio 11.0\vc\include\limits.h(41) : see previous definition of 'INT_MAX'
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\util\utilfunction.cpp(9): warning C4005: 'INT_MIN' : macro redefinition
+                 e:\program files (x86)\microsoft visual studio 11.0\vc\include\limits.h(40) : see previous definition of 'INT_MIN'
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\util\utilfunction.cpp(76): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\util\utilfunction.cpp(91): warning C4018: '<' : signed/unsigned mismatch
+         Clustering_Kmeans.cpp
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\util\clustering_kmeans.cpp(4): warning C4005: 'INT_MAX' : macro redefinition
+                 e:\program files (x86)\microsoft visual studio 11.0\vc\include\limits.h(41) : see previous definition of 'INT_MAX'
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\util\clustering_kmeans.cpp(5): warning C4005: 'INT_MIN' : macro redefinition
+                 e:\program files (x86)\microsoft visual studio 11.0\vc\include\limits.h(40) : see previous definition of 'INT_MIN'
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\util\clustering_kmeans.cpp(31): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\util\clustering_kmeans.cpp(49): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\util\clustering_kmeans.cpp(65): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\util\clustering_kmeans.cpp(85): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\util\clustering_kmeans.cpp(87): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\util\clustering_kmeans.cpp(108): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\util\clustering_kmeans.cpp(111): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\util\clustering_kmeans.cpp(127): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\util\clustering_kmeans.cpp(145): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\util\clustering_kmeans.cpp(195): warning C4018: '<' : signed/unsigned mismatch
+         ClusteringTask.cpp
+         SelectOptimalPivots_Variance.cpp
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\headerfiles\metricdata\stringobject.h(63): warning C4305: 'initializing' : truncation from '__int64' to 'const long'
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\headerfiles\metricdata\stringobject.h(63): warning C4309: 'initializing' : truncation of constant value
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\selectoptimalpivots_variance.cpp(32): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\selectoptimalpivots_variance.cpp(35): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\selectoptimalpivots_variance.cpp(39): warning C4018: '>' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\selectoptimalpivots_variance.cpp(41): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\selectoptimalpivots_variance.cpp(61): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\selectoptimalpivots_variance.cpp(65): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\selectoptimalpivots_variance.cpp(68): warning C4018: '<' : signed/unsigned mismatch
+         SelectOptimalPivots_Sequence.cpp
+         PivotWisePartitionMethod.cpp
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\headerfiles\metricdata\stringobject.h(63): warning C4305: 'initializing' : truncation from '__int64' to 'const long'
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\headerfiles\metricdata\stringobject.h(63): warning C4309: 'initializing' : truncation of constant value
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\pivotwisepartitionmethod.cpp(132): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\pivotwisepartitionmethod.cpp(144): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\pivotwisepartitionmethod.cpp(153): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\pivotwisepartitionmethod.cpp(158): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\pivotwisepartitionmethod.cpp(165): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\pivotwisepartitionmethod.cpp(174): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\pivotwisepartitionmethod.cpp(178): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\pivotwisepartitionmethod.cpp(183): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\pivotwisepartitionmethod.cpp(185): warning C4018: '>' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\pivotwisepartitionmethod.cpp(185): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\pivotwisepartitionmethod.cpp(190): warning C4018: '<=' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\pivotwisepartitionmethod.cpp(197): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\pivotwisepartitionmethod.cpp(203): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\pivotwisepartitionmethod.cpp(210): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\pivotwisepartitionmethod.cpp(220): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\pivotwisepartitionmethod.cpp(238): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\pivotwisepartitionmethod.cpp(245): warning C4018: '<' : signed/unsigned mismatch
+         PartitionByOnePivot_Trisection.cpp
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\headerfiles\metricdata\stringobject.h(63): warning C4305: 'initializing' : truncation from '__int64' to 'const long'
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\headerfiles\metricdata\stringobject.h(63): warning C4309: 'initializing' : truncation of constant value
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\partitionbyonepivot_trisection.cpp(46): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\partitionbyonepivot_trisection.cpp(61): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\partitionbyonepivot_trisection.cpp(75): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\partitionbyonepivot_trisection.cpp(95): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\partitionbyonepivot_trisection.cpp(101): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\partitionbyonepivot_trisection.cpp(108): warning C4018: '<' : signed/unsigned mismatch
+         PartitionByOnePivot_Kmeans.cpp
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\headerfiles\metricdata\stringobject.h(63): warning C4305: 'initializing' : truncation from '__int64' to 'const long'
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\headerfiles\metricdata\stringobject.h(63): warning C4309: 'initializing' : truncation of constant value
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\partitionbyonepivot_kmeans.cpp(28): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\partitionbyonepivot_kmeans.cpp(32): warning C4018: '>' : signed/unsigned mismatch
+         PartitionByOnePivot_DBSCAN.cpp
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\headerfiles\metricdata\stringobject.h(63): warning C4305: 'initializing' : truncation from '__int64' to 'const long'
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\headerfiles\metricdata\stringobject.h(63): warning C4309: 'initializing' : truncation of constant value
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\partitionbyonepivot_dbscan.cpp(8): warning C4005: 'INT_MAX' : macro redefinition
+                 e:\program files (x86)\microsoft visual studio 11.0\vc\include\limits.h(41) : see previous definition of 'INT_MAX'
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\partitionbyonepivot_dbscan.cpp(9): warning C4005: 'INT_MIN' : macro redefinition
+                 e:\program files (x86)\microsoft visual studio 11.0\vc\include\limits.h(40) : see previous definition of 'INT_MIN'
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\partitionbyonepivot_dbscan.cpp(49): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\partitionbyonepivot_dbscan.cpp(50): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\partitionbyonepivot_dbscan.cpp(56): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\partitionbyonepivot_dbscan.cpp(69): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\partitionbyonepivot_dbscan.cpp(46): warning C4101: 'dist' : unreferenced local variable
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\partitionbyonepivot_dbscan.cpp(97): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\partitionbyonepivot_dbscan.cpp(114): warning C4018: '>=' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\partitionbyonepivot_dbscan.cpp(178): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\partitionbyonepivot_dbscan.cpp(244): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\partitionbyonepivot_dbscan.cpp(247): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\partitionbyonepivot_dbscan.cpp(253): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\partitionbyonepivot_dbscan.cpp(273): warning C4244: 'argument' : conversion from 'double' to 'unsigned int', possible loss of data
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\partitionbyonepivot_dbscan.cpp(274): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\partitionbyonepivot_dbscan.cpp(275): warning C4244: 'argument' : conversion from 'double' to 'unsigned int', possible loss of data
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\partitionbyonepivot_dbscan.cpp(289): warning C4018: '<' : signed/unsigned mismatch
+         PartitionByOnePivot_BalanceOne.cpp
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\headerfiles\metricdata\stringobject.h(63): warning C4305: 'initializing' : truncation from '__int64' to 'const long'
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\headerfiles\metricdata\stringobject.h(63): warning C4309: 'initializing' : truncation of constant value
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\partitionbyonepivot_balanceone.cpp(50): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\partitionbyonepivot_balanceone.cpp(54): warning C4018: '>' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\partitionbyonepivot_balanceone.cpp(79): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\partitionbyonepivot_balanceone.cpp(96): warning C4018: '<' : signed/unsigned mismatch
+         PartitionByOnePivot_Balance.cpp
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\headerfiles\metricdata\stringobject.h(63): warning C4305: 'initializing' : truncation from '__int64' to 'const long'
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\headerfiles\metricdata\stringobject.h(63): warning C4309: 'initializing' : truncation of constant value
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\partitionbyonepivot_balance.cpp(36): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\partitionbyonepivot_balance.cpp(54): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\partitionbyonepivot_balance.cpp(62): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\partitionbyonepivot_balance.cpp(69): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\partitionbyonepivot_balance.cpp(75): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\cluster\partitionbyonepivot_balance.cpp(82): warning C4018: '<' : signed/unsigned mismatch
+         TrainOrTest.cpp
+         ReadLabel.cpp
+         Generating Code...
+         Compiling...
+         NavieBayes.cpp
+         GetInfo program
+         Naive program
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\headerfiles\classifier\util\metricdataformat.h(39): warning C4091: 'typedef ' : ignored on left of 'GetMetricData' when no variable is declared
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\headerfiles\metricdata\stringobject.h(63): warning C4305: 'initializing' : truncation from '__int64' to 'const long'
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\headerfiles\metricdata\stringobject.h(63): warning C4309: 'initializing' : truncation of constant value
+         PredictClass program
+         DatasetInMetricSpace.cpp
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\headerfiles\classifier\util\metricdataformat.h(39): warning C4091: 'typedef ' : ignored on left of 'GetMetricData' when no variable is declared
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\headerfiles\metricdata\stringobject.h(63): warning C4305: 'initializing' : truncation from '__int64' to 'const long'
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\headerfiles\metricdata\stringobject.h(63): warning C4309: 'initializing' : truncation of constant value
+         classification.cpp
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\headerfiles\metricdata\stringobject.h(63): warning C4305: 'initializing' : truncation from '__int64' to 'const long'
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\headerfiles\metricdata\stringobject.h(63): warning C4309: 'initializing' : truncation of constant value
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\headerfiles\classifier\util\metricdataformat.h(39): warning C4091: 'typedef ' : ignored on left of 'GetMetricData' when no variable is declared
+         GetInfo program
+         Naive program
+         PredictClass program
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\headerfiles\classifier\util\c4.5.h(23): warning C4005: 'Log' : macro redefinition
+                 c:\users\yh\desktop\umad150508\umad\umad\umad\headerfiles\classifier\train_naviebayes.h(27) : see previous definition of 'Log'
+         Train_NavieBayes.cpp
+         GetInfo program
+         Naive program
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\headerfiles\classifier\util\metricdataformat.h(39): warning C4091: 'typedef ' : ignored on left of 'GetMetricData' when no variable is declared
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\headerfiles\metricdata\stringobject.h(63): warning C4305: 'initializing' : truncation from '__int64' to 'const long'
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\headerfiles\metricdata\stringobject.h(63): warning C4309: 'initializing' : truncation of constant value
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\classifier\train_naviebayes.cpp(14): warning C4305: '=' : truncation from 'double' to 'float'
+         Train_Knn.cpp
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\headerfiles\classifier\util\metricdataformat.h(39): warning C4091: 'typedef ' : ignored on left of 'GetMetricData' when no variable is declared
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\headerfiles\metricdata\stringobject.h(63): warning C4305: 'initializing' : truncation from '__int64' to 'const long'
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\headerfiles\metricdata\stringobject.h(63): warning C4309: 'initializing' : truncation of constant value
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\classifier\train_knn.cpp(23): warning C4018: '<' : signed/unsigned mismatch
+         Train_C4.5.cpp
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\headerfiles\classifier\util\metricdataformat.h(39): warning C4091: 'typedef ' : ignored on left of 'GetMetricData' when no variable is declared
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\headerfiles\metricdata\stringobject.h(63): warning C4305: 'initializing' : truncation from '__int64' to 'const long'
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\headerfiles\metricdata\stringobject.h(63): warning C4309: 'initializing' : truncation of constant value
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\classifier\train_c4.5.cpp(198): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\classifier\train_c4.5.cpp(192): warning C4101: 'Cv' : unreferenced local variable
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\classifier\train_c4.5.cpp(488): warning C4244: 'return' : conversion from 'int' to 'ItemCount', possible loss of data
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\classifier\train_c4.5.cpp(676): warning C4244: 'return' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\classifier\train_c4.5.cpp(723): warning C4305: 'return' : truncation from 'double' to 'float'
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\classifier\train_c4.5.cpp(728): warning C4244: 'return' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\classifier\train_c4.5.cpp(769): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\classifier\train_c4.5.cpp(773): warning C4244: 'return' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\classifier\train_c4.5.cpp(802): warning C4305: 'return' : truncation from 'double' to 'float'
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\classifier\train_c4.5.cpp(810): warning C4305: 'return' : truncation from 'double' to 'float'
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\classifier\train_c4.5.cpp(931): warning C4305: '=' : truncation from 'double' to 'float'
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\classifier\train_c4.5.cpp(936): warning C4244: 'argument' : conversion from 'ItemCount' to 'DiscrValue', possible loss of data
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\classifier\train_c4.5.cpp(982): warning C4305: '=' : truncation from 'double' to 'float'
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\classifier\train_c4.5.cpp(987): warning C4244: 'argument' : conversion from 'ItemCount' to 'DiscrValue', possible loss of data
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\classifier\train_c4.5.cpp(991): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\classifier\train_c4.5.cpp(1071): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\classifier\train_c4.5.cpp(1091): warning C4305: '=' : truncation from 'double' to 'float'
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\classifier\train_c4.5.cpp(1123): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\classifier\train_c4.5.cpp(1192): warning C4305: '=' : truncation from 'double' to 'float'
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\classifier\train_c4.5.cpp(1212): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\classifier\train_c4.5.cpp(1329): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\classifier\train_c4.5.cpp(1338): warning C4305: '=' : truncation from 'double' to 'float'
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\classifier\train_c4.5.cpp(1351): warning C4305: '=' : truncation from 'double' to 'float'
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\classifier\train_c4.5.cpp(1362): warning C4244: '=' : conversion from 'double' to 'ItemCount', possible loss of data
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\classifier\train_c4.5.cpp(1363): warning C4244: '=' : conversion from 'int' to 'ItemCount', possible loss of data
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\classifier\train_c4.5.cpp(1392): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\classifier\train_c4.5.cpp(1400): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\classifier\train_c4.5.cpp(1418): warning C4305: '=' : truncation from 'double' to 'float'
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\classifier\train_c4.5.cpp(1637): warning C4305: '=' : truncation from 'double' to 'float'
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\classifier\train_c4.5.cpp(1673): warning C4305: '=' : truncation from 'double' to 'float'
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\classifier\train_c4.5.cpp(1675): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\classifier\train_c4.5.cpp(1739): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\classifier\train_c4.5.cpp(2122): warning C4305: 'initializing' : truncation from 'double' to 'float'
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\classifier\train_c4.5.cpp(2123): warning C4305: 'initializing' : truncation from 'double' to 'float'
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\classifier\train_c4.5.cpp(2156): warning C4244: 'return' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\classifier\train_c4.5.cpp(2162): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\classifier\train_c4.5.cpp(2517): warning C4244: '=' : conversion from 'double' to 'ItemNo', possible loss of data
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\classifier\train_c4.5.cpp(2835): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\classifier\train_c4.5.cpp(2951): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+         Train.cpp
+         Test_NavieBayes.cpp
+         PredictClass program
+         GetInfo program
+         Naive program
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\headerfiles\classifier\util\metricdataformat.h(39): warning C4091: 'typedef ' : ignored on left of 'GetMetricData' when no variable is declared
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\headerfiles\metricdata\stringobject.h(63): warning C4305: 'initializing' : truncation from '__int64' to 'const long'
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\headerfiles\metricdata\stringobject.h(63): warning C4309: 'initializing' : truncation of constant value
+         Test_Knn.cpp
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\headerfiles\classifier\util\metricdataformat.h(39): warning C4091: 'typedef ' : ignored on left of 'GetMetricData' when no variable is declared
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\headerfiles\metricdata\stringobject.h(63): warning C4305: 'initializing' : truncation from '__int64' to 'const long'
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\headerfiles\metricdata\stringobject.h(63): warning C4309: 'initializing' : truncation of constant value
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\classifier\test_knn.cpp(20): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\classifier\test_knn.cpp(35): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\classifier\test_knn.cpp(41): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\classifier\test_knn.cpp(164): warning C4018: '<' : signed/unsigned mismatch
+         Test_C4.5.cpp
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\headerfiles\classifier\util\metricdataformat.h(39): warning C4091: 'typedef ' : ignored on left of 'GetMetricData' when no variable is declared
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\headerfiles\metricdata\stringobject.h(63): warning C4305: 'initializing' : truncation from '__int64' to 'const long'
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\headerfiles\metricdata\stringobject.h(63): warning C4309: 'initializing' : truncation of constant value
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\classifier\test_c4.5.cpp(324): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\classifier\test_c4.5.cpp(318): warning C4101: 'Cv' : unreferenced local variable
+         Test.cpp
+         Generating Code...
+     1>c:\users\yh\desktop\umad150508\umad\umad\umad\sourcefiles\classifier\util\datasetinmetricspace.cpp(327): warning C4715: 'CDatasetInMetricSpace::getMetricTestData_fromTestData' : not all control paths return a value
+       Link:
+         E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\yh\Desktop\UMAD150508\UMAD\UMAD\Debug\UMAD.exe" /INCREMENTAL /NOLOGO /LIBPATH:SourceFiles\util\GSL\lib "libgsl-0.lib" "libgslcblas-0.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\yh\Desktop\UMAD150508\UMAD\UMAD\Debug\UMAD.pdb" /SUBSYSTEM:CONSOLE /HEAP:"0x10000000","0x10000000" /STACK:"0x10000000","0x10000000" /LARGEADDRESSAWARE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\yh\Desktop\UMAD150508\UMAD\UMAD\Debug\UMAD.lib" /MACHINE:X86 Debug\Test.obj
+         Debug\Test_C4.5.obj
+         Debug\Test_Knn.obj
+         Debug\Test_NavieBayes.obj
+         Debug\Train.obj
+         Debug\Train_C4.5.obj
+         Debug\Train_Knn.obj
+         Debug\Train_NavieBayes.obj
+         Debug\classification.obj
+         Debug\DatasetInMetricSpace.obj
+         Debug\NavieBayes.obj
+         Debug\ReadLabel.obj
+         Debug\TrainOrTest.obj
+         Debug\PartitionByOnePivot_Balance.obj
+         Debug\PartitionByOnePivot_BalanceOne.obj
+         Debug\PartitionByOnePivot_DBSCAN.obj
+         Debug\PartitionByOnePivot_Kmeans.obj
+         Debug\PartitionByOnePivot_Trisection.obj
+         Debug\PivotWisePartitionMethod.obj
+         Debug\SelectOptimalPivots_Sequence.obj
+         Debug\SelectOptimalPivots_Variance.obj
+         Debug\ClusteringTask.obj
+         Debug\Clustering_Kmeans.obj
+         Debug\utilFunction.obj
+         Debug\BalancePartitionMethod.obj
+         Debug\ExcludedMiddleForest.obj
+         Debug\ExcludedMiddlePartitionMethod.obj
+         Debug\FFTPivotSelectionMethod.obj
+         Debug\IncrementalSelection.obj
+         Debug\Index.obj
+         Debug\IndexNode.obj
+         Debug\ListIndex.obj
+         Debug\MVPIndex.obj
+         Debug\MVPInternalNode.obj
+         Debug\MVPLeafNode.obj
+         Debug\PartitionResults.obj
+         Debug\PCA.obj
+         Debug\PCAOnFFT.obj
+         Debug\Query.obj
+         Debug\RangeQuery.obj
+         Debug\SearchTask.obj
+         Debug\DNA.obj
+         Debug\DoubleIndexObjectPair.obj
+         Debug\DoubleVector.obj
+         Debug\Image.obj
+         Debug\MetricData.obj
+         Debug\Peptide.obj
+         Debug\RNA.obj
+         Debug\StringObject.obj
+         Debug\TandemSpectra.obj
+         Debug\CountedMetric.obj
+         Debug\DNAMetric.obj
+         Debug\EditDistance.obj
+         Debug\EuclideanDistance.obj
+         Debug\ImageMetric.obj
+         Debug\LInfinityDistance.obj
+         Debug\MetricDistance.obj
+         Debug\MSMSMetric.obj
+         Debug\PeptideMetric.obj
+         Debug\RNAMetric.obj
+         Debug\BuildAndSearchTypes.obj
+         Debug\BuildORQueryIndex.obj
+         Debug\getopt.obj
+         Debug\getopt_win.obj
+         Debug\LoadOrSearch.obj
+         Debug\main.obj
+         Debug\MakeFileName.obj
+         Debug\MemMonitor.obj
+         Debug\MVPIndexStructureAnalysor.obj
+         Debug\ObjectFactory.obj
+         Debug\ThreadPoolManager.obj
+            Creating library C:\Users\yh\Desktop\UMAD150508\UMAD\UMAD\Debug\UMAD.lib and object C:\Users\yh\Desktop\UMAD150508\UMAD\UMAD\Debug\UMAD.exp
+     1>main.obj : warning LNK4217: locally defined symbol _getopt_long_a imported in function _main
+     1>main.obj : warning LNK4049: locally defined symbol _optind imported
+     1>main.obj : warning LNK4049: locally defined symbol _optarg_a imported
+         UMAD.vcxproj -> C:\Users\yh\Desktop\UMAD150508\UMAD\UMAD\Debug\UMAD.exe
+     1>Done Building Project "C:\Users\yh\Desktop\UMAD150508\UMAD\UMAD\UMAD\UMAD.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:43.14

@@ -72,7 +72,9 @@ public:
 
     static gsl_matrix* EMPCA(gsl_matrix* matrix, const int pcNum);
 
-    static vector<int> pivotSelectionByPCAResultAngle(const gsl_matrix* pcaResult, int numP);
+    static vector<int> pivotSelectionByAngleWithAxes(const gsl_matrix* pcaResult, int numP);
+	static vector<int> pivotSelectionByPCAResultProjection(gsl_matrix* matrix,const gsl_matrix* pcaResult, int numP);
+	static vector<int> pivotSelectionByAngleWithPoint(gsl_matrix* matrix,const gsl_matrix* pcaResult, int numP);
 
 private:
 
@@ -259,6 +261,7 @@ private:
     static void viewPartCopy(int inBeginRow, int inBeginCol, int rows, int cols, 
 
         const gsl_matrix *in, int outBeginRow, int outBeginCol, gsl_matrix *out);
+	
 
 
 

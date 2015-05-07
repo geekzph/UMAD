@@ -19,6 +19,7 @@
 #include <vector>
 
 #include "../../HeaderFiles/index/PivotSelectionMethod.h"
+#include "../../HeaderFiles/metricdata/DoubleVector.h"
 
 using namespace std;
 

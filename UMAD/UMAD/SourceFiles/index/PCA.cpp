@@ -21,8 +21,10 @@
 #include <time.h>
 
 #include <string.h>
+#include <iostream> 
+using namespace std;
 
-//testtest
+
 
 /** used to get the inverse matrix mi = (m)'*/
 
@@ -30,21 +32,14 @@ void CPCA::matrix_inverse(gsl_matrix *m,gsl_matrix *mi)
 
 {
 
-    int n1=m->size1;
+	int n=m->size1;
+	gsl_permutation * p = gsl_permutation_alloc(n);
+	int sign=0;
+	gsl_linalg_LU_decomp(m, p, &sign);
+	gsl_linalg_LU_invert(m, p, mi);
 
-    int n2=m->size2;
+	gsl_permutation_free(p);
 
-    gsl_permutation * p = gsl_permutation_alloc(n1);
-
-    int sign = 1;
-
-    gsl_linalg_LU_decomp(m, p, &sign);
-
-    gsl_linalg_LU_invert(m, p, mi);
-
-
-
-    gsl_permutation_free(p);
 
 }
 
@@ -56,9 +51,9 @@ void CPCA::matrix_transpose(gsl_matrix *m,gsl_matrix *ct)
 
 {
 
-    // just change the positon of parameters
+	// just change the positon of parameters
 
-    gsl_matrix_transpose_memcpy(ct,m);
+	gsl_matrix_transpose_memcpy(ct,m);
 
 }
 
@@ -70,7 +65,8 @@ void CPCA::matrix_mul(gsl_matrix *m1,gsl_matrix *m2,gsl_matrix *m3)
 
 {
 
-    gsl_blas_dgemm (CblasNoTrans, CblasNoTrans,1.0, m1, m2,0.0, m3);
+	gsl_blas_dgemm (CblasNoTrans, CblasNoTrans,1.0, m1, m2,0.0, m3);
+
 
 }
 
@@ -82,39 +78,39 @@ void CPCA::cov_calculate(gsl_matrix *r, gsl_matrix *m)
 
 {
 
-    size_t i, j;
+	size_t i, j;
 
-    gsl_vector *a,*b;
+	gsl_vector *a,*b;
 
-    a=gsl_vector_calloc(m->size1);
+	a=gsl_vector_calloc(m->size1);
 
-    b=gsl_vector_calloc(m->size1);
+	b=gsl_vector_calloc(m->size1);
 
-    for (i =0; i <m->size2; ++i) {
+	for (i =0; i <m->size2; ++i) {
 
-        for (j = 0; j <m->size2; ++j) {
+		for (j = 0; j <m->size2; ++j) {
 
-            double v;
+			double v;
 
-            gsl_matrix_get_col (a,m,i);
+			gsl_matrix_get_col (a,m,i);
 
-            gsl_matrix_get_col (b,m,j);
+			gsl_matrix_get_col (b,m,j);
 
-            v = gsl_stats_covariance (a->data, a->stride,b->data, b->stride, a->size);
+			v = gsl_stats_covariance (a->data, a->stride,b->data, b->stride, a->size);
 
-            gsl_matrix_set (r, i, j, v);
-
-
-
-        }
-
-    }
+			gsl_matrix_set (r, i, j, v);
 
 
 
-    gsl_vector_free(a);
+		}
 
-    gsl_vector_free(b);
+	}
+
+
+
+	gsl_vector_free(a);
+
+	gsl_vector_free(b);
 
 }
 
@@ -126,39 +122,39 @@ void CPCA::centerize(gsl_matrix* matrix)
 
 {
 
-    const int size = matrix->size1;//row
+	const int size = matrix->size1;//row
 
-    const int dim = matrix->size2;//col
-
-
-
-    double* columnMean = new double [dim];
-
-    for (int i=0; i< dim; ++i)
-
-    {
-
-        columnMean[i] = 0;
-
-        for(int j=0; j<size; ++j)
-
-            columnMean[i] += gsl_matrix_get(matrix,j,i);//matrix.get(j,i);
-
-        columnMean[i] /= size;
-
-    }
+	const int dim = matrix->size2;//col
 
 
 
-    for (int i=0; i< dim; ++i)
+	double* columnMean = new double [dim];
 
-        for (int j=0;j<size; ++j)
+	for (int i=0; i< dim; ++i)
 
-            gsl_matrix_set(matrix,j,i,gsl_matrix_get(matrix,j,i) - columnMean[i]);//matrix.set(j, i, matrix.get(j,i) - columnMean[i]);
+	{
+
+		columnMean[i] = 0;
+
+		for(int j=0; j<size; ++j)
+
+			columnMean[i] += gsl_matrix_get(matrix,j,i);//matrix.get(j,i);
+
+		columnMean[i] /= size;
+
+	}
 
 
 
-    delete(columnMean);
+	for (int i=0; i< dim; ++i)
+
+		for (int j=0;j<size; ++j)
+
+			gsl_matrix_set(matrix,j,i,gsl_matrix_get(matrix,j,i) - columnMean[i]);//matrix.set(j, i, matrix.get(j,i) - columnMean[i]);
+
+
+
+	delete(columnMean);
 
 }
 
@@ -172,15 +168,15 @@ double CPCA::vecMult(const gsl_vector* vec1, const gsl_vector* vec2)
 
 {
 
-    double result = 0;
+	double result = 0;
 
-    int size = vec1->size < vec2->size ? vec1->size : vec2->size;
+	int size = vec1->size < vec2->size ? vec1->size : vec2->size;
 
-    for (int i = 0; i < size; ++i)
+	for (int i = 0; i < size; ++i)
 
-        result += vec1->data[i] * vec2->data[i];
+		result += vec1->data[i] * vec2->data[i];
 
-    return result;
+	return result;
 
 }
 
@@ -191,96 +187,96 @@ double CPCA::vecMult(const gsl_vector* vec1, const gsl_vector* vec2)
 void CPCA::iteration (gsl_matrix *data,gsl_matrix *C,int iterNum)
 
 {
+	
+	
+	gsl_matrix *x=gsl_matrix_calloc(C->size2,data->size2);
 
-    gsl_matrix *x=gsl_matrix_calloc(C->size2,data->size2);
+	gsl_matrix *c=gsl_matrix_calloc(C->size2,C->size2);
 
-    gsl_matrix *c=gsl_matrix_calloc(C->size2,C->size2);
+	gsl_matrix *cT=gsl_matrix_calloc(C->size2,C->size1);
 
-    gsl_matrix *cT=gsl_matrix_calloc(C->size2,C->size1);
+	gsl_matrix *cT1=NULL;
 
-    gsl_matrix *cT1=NULL;
+	gsl_matrix *cI=gsl_matrix_calloc(C->size2,C->size2);
 
-    gsl_matrix *cI=gsl_matrix_calloc(C->size2,C->size2);
+	gsl_matrix *cM=gsl_matrix_calloc(C->size2,C->size2);
 
-    gsl_matrix *cM=gsl_matrix_calloc(C->size2,C->size2);
+	gsl_matrix *cM1=NULL;
 
-    gsl_matrix *cM1=NULL;
+	gsl_matrix *cM2=NULL;
 
-    gsl_matrix *cM2=NULL;
+	
 
+	for(int i=0;i<iterNum;++i)
 
+	{
 
-    //===========================================
+		gsl_matrix_transpose_memcpy(cT,C);  
 
-    for(int i=0;i<iterNum;++i)
-
-    {
-
-        gsl_matrix_transpose_memcpy(cT,C);  
+		matrix_mul(cT,C,cM); 
 
 
-
-        matrix_mul(cT,C,cM); 
-
-        matrix_inverse(cM,cI); 
+		matrix_inverse(cM,cI); 
 
 
 
-        cM1=gsl_matrix_calloc(C->size2,C->size1);
+		cM1=gsl_matrix_calloc(C->size2,C->size1);
 
-        matrix_mul(cI,cT,cM1);   
+		matrix_mul(cI,cT,cM1);  
 
+		
 
+		matrix_mul(cM1,data,x); 
 
-        matrix_mul(cM1,data,x); 
+		
 
-        //STEP 1 END
-
-
-
-        cT1=gsl_matrix_calloc(data->size2,C->size2);
-
-        gsl_matrix_transpose_memcpy(cT1,x); 
+		//STEP 1 END
 
 
 
-        matrix_mul(x,cT1,cM);  
+  		cT1=gsl_matrix_calloc(data->size2,C->size2);
 
-        matrix_inverse(cM,cI); 
-
-
+		gsl_matrix_transpose_memcpy(cT1,x); 
 
 
 
-        cM2=gsl_matrix_calloc(data->size1,C->size2);
+		matrix_mul(x,cT1,cM);  
 
-        matrix_mul(data,cT1,cM2); 
+		matrix_inverse(cM,cI); 
 
-        matrix_mul(cM2,cI,C); 
+		
 
-        //STEP 2 END
+		cM2=gsl_matrix_calloc(data->size1,C->size2);
+
+		matrix_mul(data,cT1,cM2); 
+
+		matrix_mul(cM2,cI,C); 
 
 
 
+		//STEP 2 END
+
+	
 
 
-    }
 
-    gsl_matrix_free(x);
+	}
 
-    gsl_matrix_free(c);
+	gsl_matrix_free(x);
 
-    gsl_matrix_free(cT);
+	gsl_matrix_free(c);
 
-    gsl_matrix_free(cT1);
+	gsl_matrix_free(cT);
 
-    gsl_matrix_free(cI);
+	gsl_matrix_free(cT1);
 
-    gsl_matrix_free(cM);
+	gsl_matrix_free(cI);
 
-    gsl_matrix_free(cM1);
+	gsl_matrix_free(cM);
 
-    gsl_matrix_free(cM2);
+	gsl_matrix_free(cM1);
+
+	gsl_matrix_free(cM2);
 
 }
 
@@ -288,41 +284,41 @@ void CPCA::iteration (gsl_matrix *data,gsl_matrix *C,int iterNum)
 
 /* 
 
-  out[ outBeginRow : outBeginRow+rows, outBeginCol : outBeginCol+cols]
+out[ outBeginRow : outBeginRow+rows, outBeginCol : outBeginCol+cols]
 
-  = in[ inBeginRow : inBeginRow+rows, inBeginCol : inBeginCol+cols] 
+= in[ inBeginRow : inBeginRow+rows, inBeginCol : inBeginCol+cols] 
 
 */
 
 void CPCA::viewPartCopyWithABS(int inBeginRow, int inBeginCol, int rows, int cols, 
 
-       const gsl_matrix *in, int outBeginRow, int outBeginCol, gsl_matrix *out)
+							   const gsl_matrix *in, int outBeginRow, int outBeginCol, gsl_matrix *out)
 
 {
 
-    if(rows + inBeginRow <= in->size1 && rows + outBeginRow <= out->size1 &&
+	if(rows + inBeginRow <= in->size1 && rows + outBeginRow <= out->size1 &&
 
-        cols + inBeginRow <= in->size2 && cols + outBeginRow <= in->size2)
+		cols + inBeginRow <= in->size2 && cols + outBeginRow <= in->size2)
 
-    {
+	{
 
-        for (int i = 0; i < rows; ++i)
+		for (int i = 0; i < rows; ++i)
 
-        {
+		{
 
-            for (int j = 0; j < cols; ++j)
+			for (int j = 0; j < cols; ++j)
 
-            {
+			{
 
-                gsl_matrix_set(out, outBeginRow + i, outBeginRow + j,
+				gsl_matrix_set(out, outBeginRow + i, outBeginRow + j,
 
-                    gsl_matrix_get(in, inBeginRow + i, inBeginCol + j));
+					gsl_matrix_get(in, inBeginRow + i, inBeginCol + j));
 
-            }
+			}
 
-        }
+		}
 
-    }
+	}
 
 }
 
@@ -332,35 +328,40 @@ void CPCA::viewPartCopyWithABS(int inBeginRow, int inBeginCol, int rows, int col
 
 void CPCA::viewPartCopy(int inBeginRow, int inBeginCol, int rows, int cols, 
 
-       const gsl_matrix *in, int outBeginRow, int outBeginCol, gsl_matrix *out)
+						const gsl_matrix *in, int outBeginRow, int outBeginCol, gsl_matrix *out)
+
+
 
 {
 
-    if(rows + inBeginRow <= in->size1 && rows + outBeginRow <= out->size1 &&
+	/*if(rows + inBeginRow <= in->size1 && rows + outBeginRow <= out->size1 &&
 
-        cols + inBeginRow <= in->size2 && cols + outBeginRow <= in->size2)
+	cols + inBeginRow <= in->size2 && cols + outBeginRow <= in->size2)*/
+	if(rows + inBeginRow <= in->size1 && rows + outBeginRow <= out->size1 &&
 
-    {
+		cols + inBeginCol <= in->size2 && cols +  outBeginCol <= out->size2)
 
-        for (int i = 0; i < rows; ++i)
+	{
 
-        {
+		for (int i = 0; i < rows; ++i)
 
-            for (int j = 0; j < cols; ++j)
+		{
 
-            {
+			for (int j = 0; j < cols; ++j)
 
-                gsl_matrix_set(out, outBeginRow + i, outBeginRow + j,
+			{
 
-                    abs(gsl_matrix_get(in, inBeginRow + i, inBeginCol + j)));
+				gsl_matrix_set(out, outBeginRow + i, outBeginCol + j,
 
-                /* the diference between this and viewPartCopy */
+					abs(gsl_matrix_get(in, inBeginRow + i, inBeginCol + j)));
 
-            }
+				/* the diference between this and viewPartCopy */
 
-        }
+			}
 
-    }
+		}
+
+	}
 
 }
 
@@ -368,17 +369,18 @@ void CPCA::viewPartCopy(int inBeginRow, int inBeginCol, int rows, int cols,
 
 /* out[ outBeginRow : outBeginRow+rows, outBeginCol : outBeginCol+cols]
 
-   = in[ 0 : rows, 0 : cols] 
+= in[ 0 : rows, 0 : cols] 
 
 */
 
 void CPCA::viewPartCopy(int outBeginRow, int outBeginCol, int rows, int cols, 
 
-         const gsl_matrix *in, gsl_matrix *out)
+						const gsl_matrix *in, gsl_matrix *out)
 
 {
 
-    viewPartCopy(0, 0, rows, cols, in, outBeginRow, outBeginCol, out);
+	viewPartCopy(0, 0, rows, cols, in, outBeginRow, outBeginCol, out);
+
 
 }
 
@@ -390,13 +392,13 @@ void CPCA::columnFilp(gsl_matrix *m)
 
 {
 
-    for(int i=0;i<m->size2/2;++i)
+	for(int i=0;i<(m->size2)/2;++i)
 
-    {
+	{
 
-        gsl_matrix_swap_columns(m,i,m->size2-1-i);
+		gsl_matrix_swap_columns(m,i,m->size2-1-i);
 
-    }
+	}
 
 }
 
@@ -408,61 +410,61 @@ int CPCA::getRank(const gsl_matrix* matrix)
 
 {
 
-    /* 
+	/* 
 
-    the SVD in the GSL lib will change the input matirx ,
+	the SVD in the GSL lib will change the input matirx ,
 
-    to keep the origin matrix, copy the matrix to A below
+	to keep the origin matrix, copy the matrix to A below
 
-    */
+	*/
 
-    gsl_matrix* A = gsl_matrix_calloc(matrix->size1, matrix->size2);
+	gsl_matrix* A = gsl_matrix_calloc(matrix->size1, matrix->size2);
 
-    gsl_matrix_memcpy(A, matrix);
-
-
-
-    gsl_matrix* V = gsl_matrix_alloc(A->size2,A->size2);
-
-    gsl_vector* S = gsl_vector_alloc(A->size2);
+	gsl_matrix_memcpy(A, matrix);
 
 
 
-    /* contribute the SVD of matrix */
+	gsl_matrix* V = gsl_matrix_alloc(A->size2,A->size2);
 
-    gsl_linalg_SV_decomp_jacobi(A,V,S);
-
-
-
-    /* using the S of SVD to contribute rank */
-
-    int n = A->size1 > A->size2? A->size1: A->size2;
-
-    double maxS = gsl_stats_max(S->data,1,S->size);
-
-    double eps = pow(2.0,-52.0); // eps is the min double non-zero number  
-
-    double tol =n * eps * S->data[0]; // tol is the number see as zero
-
-    int rank = 0;
-
-    for (int i = 0; i < S->size; ++i)
-
-    {
-
-        if(gsl_vector_get(S,i) > tol) rank++;
-
-    }
+	gsl_vector* S = gsl_vector_alloc(A->size2);
 
 
 
-    gsl_matrix_free(A);
+	/* contribute the SVD of matrix */
 
-    gsl_matrix_free(V);
+	gsl_linalg_SV_decomp_jacobi(A,V,S);
 
-    gsl_vector_free(S);
 
-    return rank;
+
+	/* using the S of SVD to contribute rank */
+
+	int n = A->size1 > A->size2? A->size1: A->size2;
+
+	double maxS = gsl_stats_max(S->data,1,S->size);
+
+	double eps = pow(2.0,-52.0); // eps is the min double non-zero number  
+
+	double tol =n * eps * S->data[0]; // tol is the number see as zero
+
+	int rank = 0;
+
+	for (int i = 0; i <( S->size); ++i)
+
+	{
+
+		if(gsl_vector_get(S,i) > tol) rank++;
+
+	}
+
+
+
+	gsl_matrix_free(A);
+
+	gsl_matrix_free(V);
+
+	gsl_vector_free(S);
+
+	return rank;
 
 }
 
@@ -474,137 +476,137 @@ gsl_matrix* CPCA::orthonormalization(const gsl_matrix* matrix)
 
 {
 
-    const int rowNum = matrix->size1;
+	const int rowNum = matrix->size1;
 
-    const int colNum = matrix->size2;
+	const int colNum = matrix->size2;
 
-    const int rank = getRank(matrix);
+	const int rank = getRank(matrix);
 
 
 
-    gsl_matrix* result = gsl_matrix_alloc(rowNum, rank);
+	gsl_matrix* result = gsl_matrix_alloc(rowNum, rank);
 
 
 
-    gsl_vector* colVec = gsl_vector_alloc(rowNum);
+	gsl_vector* colVec = gsl_vector_alloc(rowNum);
 
-    gsl_vector* iVec = gsl_vector_alloc(rowNum);
+	gsl_vector* iVec = gsl_vector_alloc(rowNum);
 
-    gsl_matrix_get_col(colVec,matrix,0);
+	gsl_matrix_get_col(colVec,matrix,0);
 
-    gsl_matrix_set_col(result,0,colVec);
+	gsl_matrix_set_col(result,0,colVec);
 
 
 
-    for(int col=1; col<rank; col++)
+	for(int col=1; col<rank; col++)
 
-    {
+	{
 
-        //result.viewColumn(col).assign(matrix.viewColumn(col));
+		//result.viewColumn(col).assign(matrix.viewColumn(col));
 
-        gsl_matrix_get_col(colVec,matrix,col);
+		gsl_matrix_get_col(colVec,matrix,col);
 
-        gsl_matrix_set_col(result,col,colVec);
+		gsl_matrix_set_col(result,col,colVec);
 
 
 
-        for(int i=0; i<col; ++i)
+		for(int i=0; i<col; ++i)
 
-        {
+		{
 
-            /*result.viewColumn(col).assign(tempColumn.assign( alg.mult(matrix.viewColumn(col), 
+			/*result.viewColumn(col).assign(tempColumn.assign( alg.mult(matrix.viewColumn(col), 
 
-            result.viewColumn(i))/alg.norm2(result.viewColumn(i))).assign(result.viewColumn(i), Functions.mult), Functions.minus);*/
+			result.viewColumn(i))/alg.norm2(result.viewColumn(i))).assign(result.viewColumn(i), Functions.mult), Functions.minus);*/
 
 
 
-            //alg.norm2(result.viewColumn(i)) : A
+			//alg.norm2(result.viewColumn(i)) : A
 
-            gsl_matrix_get_col(iVec,result,i);
+			gsl_matrix_get_col(iVec,result,i);
 
-            double norm2 = gsl_blas_dnrm2(iVec);
+			double norm2 = gsl_blas_dnrm2(iVec);
 
-            norm2*=norm2;
+			norm2*=norm2;
 
 
 
-            //alg.mult(matrix.viewColumn(col), result.viewColumn(i)) : B
+			//alg.mult(matrix.viewColumn(col), result.viewColumn(i)) : B
 
-            gsl_matrix_get_col(colVec,matrix,col);
+			gsl_matrix_get_col(colVec,matrix,col);
 
-            double mult = vecMult(colVec,iVec);
+			double mult = vecMult(colVec,iVec);
 
 
 
-            //tempColumn.assign(B / A)   :   C
+			//tempColumn.assign(B / A)   :   C
 
-            gsl_vector_set_all(colVec,mult/norm2);
+			gsl_vector_set_all(colVec,mult/norm2);
 
 
 
-            //C.assign(result.viewColumn(i), Functions.mult)  :  D
+			//C.assign(result.viewColumn(i), Functions.mult)  :  D
 
-            gsl_matrix_get_col(iVec,result,i);
+			gsl_matrix_get_col(iVec,result,i);
 
-            gsl_vector_mul(iVec,colVec);
+			gsl_vector_mul(iVec,colVec);
 
 
 
-            //result.viewColumn(col).assign((D, Functions.minus)
+			//result.viewColumn(col).assign((D, Functions.minus)
 
-            gsl_matrix_get_col(colVec,result,col);
+			gsl_matrix_get_col(colVec,result,col);
 
-            gsl_vector_sub(colVec,iVec);
+			gsl_vector_sub(colVec,iVec);
 
-            gsl_matrix_set_col(result,col,colVec);
+			gsl_matrix_set_col(result,col,colVec);
 
-        }
+		}
 
-    }
+	}
 
 
 
-    for(int col=0; col<rank;col++)
+	for(int col=0; col<rank;col++)
 
-    {
+	{
 
-        //result.viewColumn(col).assign(tempColumn.assign(Math.sqrt(alg.norm2(result.viewColumn(col)))), Functions.div);
+		//result.viewColumn(col).assign(tempColumn.assign(Math.sqrt(alg.norm2(result.viewColumn(col)))), Functions.div);
 
 
 
-        //alg.norm2(result.viewColumn(col))  :  A
+		//alg.norm2(result.viewColumn(col))  :  A
 
-        gsl_matrix_get_col(colVec,result,col);
+		gsl_matrix_get_col(colVec,result,col);
 
-        double norm2 = gsl_blas_dnrm2(colVec);
+		double norm2 = gsl_blas_dnrm2(colVec);
 
 
 
-        //Math.sqrt(A)  :   B
+		//Math.sqrt(A)  :   B
 
-        //norm2 = sqrt(norm2);
+		//norm2 = sqrt(norm2);
 
 
 
-        //tempColumn.assign(B) :  C
+		//tempColumn.assign(B) :  C
 
-        gsl_vector_set_all(iVec,norm2);
+		gsl_vector_set_all(iVec,norm2);
 
-        // result.viewColumn(col).assign(C, Functions.div);
+		// result.viewColumn(col).assign(C, Functions.div);
 
-        gsl_vector_div(colVec,iVec);
+		gsl_vector_div(colVec,iVec);
 
-        gsl_matrix_set_col(result,col,colVec);
+		gsl_matrix_set_col(result,col,colVec);
 
-    }
+	}
 
 
 
-    gsl_vector_free(colVec);
+	gsl_vector_free(colVec);
 
-    gsl_vector_free(iVec);
+	gsl_vector_free(iVec);
 
-    return result;
+	return result;
 
 }
 
@@ -614,291 +616,570 @@ gsl_matrix* CPCA::EMPCA(gsl_matrix* matrix, const int pcNum)
 
 {
 
-    const int iterNum = 20; /** the time to interate below */
+	const int iterNum = 20; /** the time to interate below */
 
-    const int dim = matrix->size2; 
+	const int dim = matrix->size2; 
 
 
+	
 
-    /* step 1: centerize the matrix */
 
-    centerize(matrix);
 
 
+	/* step 1: centerize the matrix */
 
-    gsl_matrix* data = gsl_matrix_alloc(matrix->size2, matrix->size1);
+	centerize(matrix);
 
-    gsl_matrix_transpose_memcpy(data,matrix);
+	/*cout<<matrix->size1<<endl;
+	cout<<matrix->size2<<endl;*/
 
 
 
-    /* step 2: initial a random matrix */
+	gsl_matrix* data = gsl_matrix_alloc(matrix->size2, matrix->size1);
 
-    const gsl_rng_type *T;    
+	gsl_matrix_transpose_memcpy(data,matrix);
 
-    gsl_rng *r;
+	
 
-    double u;
 
-    gsl_rng_env_setup();
 
-    T = gsl_rng_default;
+	/* step 2: initial a random matrixwwwwwwwwwwwwwwwwwwwwww */
 
-    gsl_rng_default_seed = ((unsigned long)(time(NULL)));
+	const gsl_rng_type *T;    
 
-    r = gsl_rng_alloc(T);    
+	gsl_rng *r;
 
-    u = gsl_rng_uniform(r);    
+	double u;
 
+	gsl_rng_env_setup();
 
+	T = gsl_rng_default;
 
-    gsl_matrix* C = gsl_matrix_alloc(dim,pcNum);
+	gsl_rng_default_seed = ((unsigned long)(time(NULL)));
 
-    for(int i=0;i<dim;++i)
+	r = gsl_rng_alloc(T);    
 
-    {
+	u = gsl_rng_uniform(r);   
+	//u=0.4;
 
-        for(int j=0;j<pcNum;++j)
 
-        {
 
-            u = gsl_rng_uniform(r); //产生一个[0, 1)区间上的随机数
+	gsl_matrix* C = gsl_matrix_alloc(dim,pcNum);
 
-            gsl_matrix_set(C,i,j,u - 0.5);
+	for(int i=0;i<dim;++i)
 
-        }
+	{
 
-    }
+		for(int j=0;j<pcNum;++j)
 
+		{
 
+			u = gsl_rng_uniform(r); //产生一个[0, 1)区间上的随机数
+			//u += 0.1*(j+1);
+			gsl_matrix_set(C,i,j,u - 0.5);
 
-    /* step 3: the iteration with the random matrix and centerize matrix, the part of EM */
+		}
 
-    iteration(data,C,iterNum);
+	}
+	
+	
+	
 
 
+	/* step 3: the iteration with the random matrix and centerize matrix, the part of EM */
 
-    /* step 4: orthonomalize the matrix */
+	iteration(data,C,iterNum);
 
-    C = orthonormalization(C);
+	
 
+	/* step 4: orthonomalize the matrix */
 
+	C = orthonormalization(C);
 
-    /* step 5: contribute the covariance of the orthonormalized matrix */
+	
 
-    gsl_matrix* cMul = gsl_matrix_alloc(C->size2, data->size2);
 
-    gsl_blas_dgemm (CblasTrans, CblasNoTrans,1.0, C, data, 0.0, cMul);
 
-    gsl_matrix* cMulDense  = gsl_matrix_alloc(cMul->size2, cMul->size1);
+	/* step 5: contribute the covariance of the orthonormalized matrix */
 
-    gsl_matrix_transpose_memcpy(cMulDense,cMul);
+	gsl_matrix* cMul = gsl_matrix_alloc(C->size2, data->size2);
 
+	gsl_blas_dgemm (CblasTrans, CblasNoTrans,1.0, C, data, 0.0, cMul);
 
+	
 
-    gsl_matrix* cov = gsl_matrix_alloc(cMulDense->size2, cMulDense->size2);
+	gsl_matrix* cMulDense  = gsl_matrix_alloc(cMul->size2, cMul->size1);
 
-    cov_calculate(cov, cMulDense);
+	gsl_matrix_transpose_memcpy(cMulDense,cMul);
 
+	
 
 
-    /* step 6: contribute the eigenValues and eigenMatrix of the cov */
 
-    gsl_eigen_symmv_workspace* w = gsl_eigen_symmv_alloc(cov->size1 * 2);
+	gsl_matrix* cov = gsl_matrix_alloc(cMulDense->size2, cMulDense->size2);
 
-    gsl_vector* eval = gsl_vector_calloc (cov->size1);
+	cov_calculate(cov, cMulDense);
 
-    gsl_matrix* evec = gsl_matrix_calloc(cov->size1,cov->size1);
+	
 
-    gsl_eigen_symmv(cov,eval,evec,w);
 
+	/* step 6: contribute the eigenValues and eigenMatrix of the cov */
 
+	gsl_eigen_symmv_workspace* w = gsl_eigen_symmv_alloc(cov->size1 * 2);
 
-    /* step 7: assign the result matrix from row 1 and col 0
+	gsl_vector* eval = gsl_vector_calloc (cov->size1);
 
-    result[ 1:rowSize, 0:colSize] = orthonormalized matrix * eigenMatrix
+	gsl_matrix* evec = gsl_matrix_calloc(cov->size1,cov->size1);
 
-    */
+	gsl_eigen_symmv(cov,eval,evec,w);
 
-    gsl_matrix* result = gsl_matrix_alloc(dim+1, pcNum);
 
-    columnFilp(evec);
 
-    gsl_matrix* tmp = gsl_matrix_calloc(C->size1, evec->size2);
+	/* step 7: assign the result matrix from row 1 and col 0
 
-    matrix_mul(C,evec,tmp);
+	result[ 1:rowSize, 0:colSize] = orthonormalized matrix * eigenMatrix
 
-    viewPartCopy(1,0,dim,pcNum,tmp,result);
+	*/
 
+	gsl_matrix* result = gsl_matrix_alloc(dim+1, pcNum);
+	//gsl_matrix_set_zero (result);//将矩阵所有元素初始化为零
 
+	columnFilp(evec);
 
-    /* step 8: copy the eigenValues as the first row the result */
 
-    for (int i = eval->size; i >0; --i)
 
-    {
 
-        gsl_matrix_set(result, 0, eval->size-i, gsl_vector_get(eval,i-1));
 
-    }
+	gsl_matrix* tmp = gsl_matrix_calloc(C->size1, evec->size2);
 
+	matrix_mul(C,evec,tmp);
 
 
-    /* step 9: transpose the result as tResult */
 
-    gsl_matrix* tResult = gsl_matrix_alloc(pcNum,dim+1);
+	viewPartCopy(1,0,dim,pcNum,tmp,result);
 
-    gsl_matrix_transpose_memcpy(tResult,result);
 
 
+	/* step 8: copy the eigenValues as the first row the result */
 
-    /*--------------- EMPCA END ------------------*/
+	for (int i = eval->size; i >0; --i)
 
+	{
 
+		gsl_matrix_set(result, 0, eval->size-i, gsl_vector_get(eval,i-1));
 
-    /* the code below used to print the result of EMPCA */
+	}
 
-    /*printf("============================\nresult\n");
 
-    for (int i = 0; i < tResult->size1; ++i)
 
-    {
 
-    for (int j = 0; j < tResult->size2; ++j)
 
-    {
+	/* step 9: transpose the result as tResult */
 
-    printf("%lf ", gsl_matrix_get(tResult,i,j));
+	gsl_matrix* tResult = gsl_matrix_alloc(pcNum,dim+1);
 
-    }printf("\n");
+	gsl_matrix_transpose_memcpy(tResult,result);
 
-    }printf("\n");*/
 
 
 
-    gsl_eigen_symmv_free(w);
 
-    gsl_matrix_free(tmp);
+	/*--------------- EMPCA END ------------------*/
 
-    gsl_matrix_free(data);
 
-    gsl_matrix_free(result);
 
-    gsl_matrix_free(evec);
+	/* the code below used to print the result of EMPCA */
 
-    gsl_vector_free(eval);
+	/*printf("============================\nresult\n");
 
-    gsl_matrix_free(C);
+	for (int i = 0; i < tResult->size1; ++i)
 
-    gsl_matrix_free(cov);
+	{
 
-    gsl_matrix_free(cMul);
+	for (int j = 0; j < tResult->size2; ++j)
 
-    gsl_matrix_free(cMulDense);
+	{
 
-    gsl_rng_free(r);
+	printf("%lf ", gsl_matrix_get(tResult,i,j));
 
-    return tResult;
+	}printf("\n");
 
-    int * b = new int[5];
+	}printf("\n");*/
+
+
+
+	gsl_eigen_symmv_free(w);
+
+	gsl_matrix_free(tmp);
+
+	gsl_matrix_free(data);
+
+	gsl_matrix_free(result);
+
+	gsl_matrix_free(evec);
+
+	gsl_vector_free(eval);
+
+	gsl_matrix_free(C);
+
+	gsl_matrix_free(cov);
+
+	gsl_matrix_free(cMul);
+
+	gsl_matrix_free(cMulDense);
+
+	gsl_rng_free(r);
+
+	return tResult;
+
+	//int * b = new int[5];
 
 }
 
 
 
-vector<int> CPCA::pivotSelectionByPCAResultAngle(const gsl_matrix* pcaResult, int numP)
+
+/*
+pivot selection based on the result of PCA.  Select some of the axes as piovts, no duplicate axes will be selected.  
+It is the user's reponsibility to guarantee that each axis is different from others.
+Method: relate pc to axes.  Start from the 1st axis of each pc, then 2st, until enough number pivots are selected.
+@param pcaResult PCA result: A {@link DoubleMatrix2D} of size [pcNum x (dim +1)], 
+the first column is the variance of each PC in descending order.
+The remain of each row is a PC
+@param numP number of pivots to select, should not be greater than the number of columns (dim) of the input PCA result matrix.
+@return an int array of column indecies of the pivots in the input data array.
+*/
+
+
+
+vector<int> CPCA::pivotSelectionByAngleWithAxes(const gsl_matrix* pcaResult, int numP)
 
 {
 
-    const int pcNum = pcaResult->size1;
+	const int pcNum = pcaResult->size1;
 
-    const int dim = pcaResult->size2 - 1;
-
-
-
-    //gsl_matrix* PC = gsl_matrix_alloc(pcNum, dim);
-
-    //viewPartCopyWithABS(0, 0, pcNum, dim, pcaResult, 1, 0, PC);
-
-    
-
-    double* PC = new double[pcNum * dim];
+	const int dim = pcaResult->size2 - 1;
 
 
 
-    for (int i = 0; i < pcNum; ++i)
-
-    {
-
-        double* pPC = PC + i * dim;
-
-        for (int j = 0; j < dim; ++j)
-
-        {
-
-            pPC[j] = abs(gsl_matrix_get(pcaResult, i, 1+j));
-
-        }
-
-    }
-
-    
-
-    vector<int> result;
-
-    bool* isAdded = new bool[dim];
-
-    memset(isAdded, dim, 0);
-
-    int maxValue, maxValuePos;
-
-    for (int i = 0; (i < pcNum) && (result.size() < numP); i++)
-
-    {
-
-        maxValue = -1;
-
-        double* pPC = PC + i*dim;
-
-        for (int j = 0; (j < dim) && (result.size() < numP); j++)
-
-        {
-
-            if(maxValue < pPC[j])
-
-            {
-
-                maxValue = pPC[j];
-
-                maxValuePos = j;
-
-            }
-
-        }
+	double* PC = new double[pcNum * dim];
 
 
 
-        if(!isAdded[maxValuePos])
+	for (int i = 0; i < pcNum; ++i)
 
-        {
+	{
 
-            result.push_back(maxValuePos);
-
-            isAdded[maxValuePos] = true;
-
-            pPC[maxValuePos] = -2;
-
-        }
-
-    }
+		double* pPC = PC + i * dim;
 
 
+		for (int j = 0; j < dim; ++j)
 
-    return result;
+		{
+
+			pPC[j] = abs(gsl_matrix_get(pcaResult, i, 1+j));
+
+		}
+
+
+
+
+
+
+	}
+
+
+
+	vector<int> result;
+
+	bool* isAdded = new bool[dim];
+
+	memset(isAdded,0,dim);
+
+	double maxValue;
+	int  maxValuePos=0;
+
+	for (int i = 0; (i < pcNum) && (result.size() < numP); i++)
+
+	{
+
+		maxValue = -1.0;
+
+		double* pPC = PC + i*dim;
+
+		for (int j = 0; (j < dim) && (result.size() < numP); j++)
+		{
+			
+			if(maxValue < pPC[j]) 
+
+			{
+				maxValue = pPC[j];
+
+				maxValuePos = j;
+
+			}
+
+		}
+
+
+		if(!isAdded[maxValuePos])
+		{
+			result.push_back(maxValuePos);
+
+			isAdded[maxValuePos] =1;
+
+     		pPC[maxValuePos] = -2.0;
+		}
+		else
+		{
+			pPC[maxValuePos] = -2.0;
+			i--;
+		}
+
+
+
+	}
+
+
+
+	return result;
 
 }
 
 
 
+
+
+vector<int> CPCA::pivotSelectionByPCAResultProjection(gsl_matrix* matrix,const gsl_matrix* pcaResult, int numP)
+{
+
+
+	const int matrixrow= matrix->size1;
+
+	const int matrixcolumn = matrix->size2;
+
+	const int pcNum = pcaResult->size1;
+
+	const int pcadim=(pcaResult->size2)-1;
+
+	if(matrixcolumn!=pcadim)
+	{
+		cout<<"error!"<<endl;
+	}
+
+
+	double* PC = new double[matrixrow];
+
+	bool* isAdded = new bool[matrixrow];
+
+	memset(isAdded,0,matrixrow);
+
+	double maxValue=-1.0;
+	int  maxValuePos=0;
+
+
+	vector<int> result;
+
+	double p=0;
+
+	bool flag=false;
+
+	for(int eachpc=0;eachpc<pcNum;eachpc++)
+	{
+        maxValue=-1.0;
+		//maxValue= DBL_MAX;
+		if(!flag)
+		{
+			
+			for(int size=0;size<matrixrow;size++)
+			{
+				p=0;
+				for(int dim=0;dim<matrixcolumn;dim++)
+				{
+					p+=abs(gsl_matrix_get(pcaResult,eachpc,dim+1)*gsl_matrix_get(matrix,size,dim));
+					
+				}
+				PC[size]=p;
+				
+			}
+		}
+
+
+
+		for (int i = 0; i < matrixrow; i++)
+
+		{
+
+			if(maxValue <PC[i]) 
+			{
+
+				maxValue = PC[i];
+
+				maxValuePos = i;
+
+			}
+
+		}
+
+		if(!isAdded[maxValuePos])
+
+		{
+
+			result.push_back(maxValuePos);
+
+			isAdded[maxValuePos] = true;
+			flag=false;
+
+
+		}
+
+		else
+		{
+			PC[maxValuePos]=-2.0;
+			eachpc--;
+			flag=true;
+		}
+
+
+
+	}
+
+
+
+	return result;
+
+
+}
+
+
+
+
+
+
+vector<int> CPCA::pivotSelectionByAngleWithPoint(gsl_matrix* matrix,const gsl_matrix* pcaResult, int numP)
+{
+
+	gsl_matrix* realpcaResult = gsl_matrix_calloc(pcaResult->size1,(pcaResult->size2)-1);
+	
+	viewPartCopy(0,1,pcaResult->size1,(pcaResult->size2)-1,pcaResult,0,0,realpcaResult);
+
+	const int matrixrow= matrix->size1;
+
+	const int matrixcolumn = matrix->size2;
+
+	const int pcNum = realpcaResult->size1;
+
+	const int dim= realpcaResult->size2;
+
+
+	if(matrixcolumn!=dim)
+	{
+		cout<<"error!"<<endl;
+	}
+
+
+	double* PClength = new double[pcNum];
+
+	for(int i=0;i<pcNum;i++)
+	{
+		double sum=0;
+		for(int j=0;j<dim;j++)
+		{
+			sum+=pow(gsl_matrix_get(realpcaResult,i,j),2);
+		}
+		PClength[i]=sqrt(sum);
+	}
+
+	double* Pointlength = new double[matrixrow];
+	for(int i=0;i<matrixrow;i++)
+	{
+		double sum=0;
+		for(int j=0;j<dim;j++)
+		{
+			sum+=pow(gsl_matrix_get(matrix,i,j),2);
+		}
+		Pointlength[i]=sqrt(sum);
+	}
+
+
+
+	double* cosAngle = new double[matrixrow];
+
+	vector<int> result;
+
+	double p=0;
+
+	bool* isAdded = new bool[matrixrow];
+
+	memset(isAdded,0,matrixrow);
+
+	double maxValue=-1.0;
+	int  maxValuePos=0;
+
+	bool flag=false;
+
+	for(int i=0;i<pcNum;i++)
+	{
+		maxValue=-1.0;
+		//maxValue= DBL_MAX;
+		if(!flag)
+		{
+			for(int j=0;j<matrixrow;j++)
+			{
+				p=0;
+				for(int n=0;n<dim;n++)
+				{
+					p+=abs(gsl_matrix_get(realpcaResult,i,n)*gsl_matrix_get(matrix,j,n));
+				}
+				cosAngle[j]=p/(PClength[i]*Pointlength[j]);
+
+			}
+		}
+
+
+			for (int i = 0; i < matrixrow; i++)
+
+			{
+
+				if(maxValue <cosAngle[i]) 
+				{
+
+					maxValue = cosAngle[i];
+
+					maxValuePos = i;
+
+				}
+
+			}
+
+			if(!isAdded[maxValuePos])
+
+			{
+
+				result.push_back(maxValuePos);
+
+				isAdded[maxValuePos] = true;
+				flag=false;
+
+
+			}
+
+			else
+			{
+				cosAngle[maxValuePos]=-2.0;
+				i--;
+				flag=true;
+			}
+
+
+
+		}
+
+
+
+		return result;
+
+
+	}
 
 

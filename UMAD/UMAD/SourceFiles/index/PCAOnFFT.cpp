@@ -30,7 +30,7 @@
 
 #include <time.h>
 
-
+vector<int> removeDuplicate(CMetricDistance *metric,vector<shared_ptr<CMetricData> > data,vector<int> &pivots,int first,int dataSize);
 
 
 
@@ -42,67 +42,65 @@ CPCAOnFFT::~CPCAOnFFT(){}
 
 
 
+vector<int> CPCAOnFFT::selectPivots(CMetricDistance *metric, vector<shared_ptr<CMetricData> > &data, int numPivots)
+
+{
+	vector<int> a;
+	return a;
+
+}
+
+
+
 vector<int> CPCAOnFFT::selectPivots(CMetricDistance *metric, vector<shared_ptr<CMetricData> > &data, 
 
-                                    int numPivots)
+                                    int first, int dataSize, int numPivots)
 
 {
 
-    const int dataSize = data.size();
-
-    
-
-    if(dataSize <= numPivots)
-
-    {
-
-        vector<int> pivots;
-
-        for (int i = 0; i < dataSize; ++i)
-
-            pivots.push_back(i);
-
-        return CIncrementalSelection::removeDuplicate(metric, data, pivots);
-
-    }
 
 
+	if (numPivots >= dataSize) 
 
-    CFFTPivotSelectionMethod FFTMethod;
+	{
 
-    vector<int> fftResult = FFTMethod.selectPivots(metric, data, numPivots);
+		vector<int>* pivots=new vector<int>;
+
+		for (int i = first; i < first+dataSize + 0; i++)
+
+			pivots->push_back(i);
+
+		
+
+		return removeDuplicate(metric, data, *pivots,first,dataSize);
+
+	}
+	
+	
 
 
+   CFFTPivotSelectionMethod FFTMethod;
 
-    if(fftResult.size() <= min(numPivots, dataSize))
+	vector<int> fftResult = FFTMethod.selectPivots(metric,data,first,dataSize, numPivots*FFTScale);
+
+	
+	 if(fftResult.size() <= min(numPivots, dataSize))
 
         return fftResult;
 
-
+	
 
     gsl_matrix* matrix = gsl_matrix_alloc(dataSize, fftResult.size());
 
-    for (int row = 0; row < dataSize; ++row)
-
-    {
-
-        for (int col = fftResult.size() - 1; col > -1 ; --col)
-
-        {
-
-            gsl_matrix_set(matrix, row, col, 
-
-                metric->getDistance( data.at(row).get(), data.at(fftResult.at(col)).get() )); 
-
-        }
-
-    }
-
+ 
+	for (int col = 0; col < fftResult.size(); col++)
+            for (int row = 0; row < dataSize; row++)
+                gsl_matrix_set(matrix, row, col, metric->getDistance( data.at(row).get(), data.at(fftResult.at(col)).get() ));
 
 
     gsl_matrix* pcaResult = gsl_matrix_alloc( numPivots, fftResult.size());
 
-
+	
 
     try
 
@@ -140,43 +138,55 @@ vector<int> CPCAOnFFT::selectPivots(CMetricDistance *metric, vector<shared_ptr<C
 
     }
 
-
-
     vector<int> selectByAngleResult 
 
-        = CPCA::pivotSelectionByPCAResultAngle( pcaResult, numPivots);
+        = CPCA::pivotSelectionByAngleWithAxes( pcaResult, numPivots);
+	 
+    vector<int> finalResult;
+    for (int i = 0; i < numPivots; ++i)
+    {	
+		finalResult.push_back( fftResult.at( selectByAngleResult.at(i) ));
+    }
 
 
+	
 
+	/*vector<int> selectByProjectionResult  
+	      = CPCA::pivotSelectionByPCAResultProjection( matrix,pcaResult, numPivots);
+	     
+	
     vector<int> finalResult;
 
     for (int i = 0; i < numPivots; ++i)
 
     {
+		finalResult.push_back( selectByProjectionResult .at(i) + first ) ;
+    }*/
 
-        finalResult.push_back( fftResult.at( selectByAngleResult.at(i) ) );
+	
+	
 
-    }
+	/*vector<int> selectByAngleResult 
+	      = CPCA::pivotSelectionByAngleWithPoint( matrix,pcaResult, numPivots);
+	  
+    vector<int> finalResult;
 
+    for (int i = 0; i < numPivots; ++i)
 
+    {
+		finalResult.push_back( selectByAngleResult.at(i) +first) ;
+    }*/
 
-    return finalResult;
+	
+	
+	
+	return finalResult;
+
 
 }
 
 
 
-vector<int> CPCAOnFFT::selectPivots(CMetricDistance *metric, vector<shared_ptr<CMetricData> > &data, 
-
-                                    int first, int size, int numPivots)
-
-{
-
-    vector<int> a;
-
-    return a;
-
-}
 
 
 
